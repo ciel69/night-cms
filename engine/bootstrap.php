@@ -1,7 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ciel
- * Date: 26.06.2018
- * Time: 14:04
- */
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Engine\Cms;
+use Engine\DI\DI;
+
+try {
+    $di = new DI();
+
+    $cms = new Cms($di);
+    $cms->run();
+
+} catch (\ErrorException $err) {
+    echo $err->getMessage();
+}
